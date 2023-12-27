@@ -37,10 +37,13 @@ const Form = (props) => {
      try {
 
 
-      const response = await axios.post("http://localhost:4000/api/v1//login",{...formData,});
+      const response = await axios.post("https://survey-rbq3.onrender.com/api/v1/login",{...formData,});
       
       const token = response.data.token;
-      document.cookie = `token=${token}; path=/;`;
+      // document.cookie = `token=${token}; path=/;`;
+
+      document.cookie = `token=${token}; path=/; SameSite=None; Secure`;
+
     setFormData({...formData,email:"",password:''});
     setUser({...response.data.user});
     toast("Login successfully")
@@ -65,7 +68,7 @@ const Form = (props) => {
 
 
         console.log("your form data before register",formData);
-         const response=await axios.post("http://localhost:4000/api/v1//register",{
+         const response=await axios.post("https://survey-rbq3.onrender.com/api/v1/register",{
           ...formData
          })
 

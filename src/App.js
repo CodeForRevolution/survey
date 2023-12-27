@@ -26,12 +26,14 @@ function App() {
         const axiosInstance = axios.create({
           withCredentials: true,
         });
-        const response = await axiosInstance.get(        //sending request to server to get the survey data if your will login then server will give the data
-          "http://localhost:4000/api/v1//survey"
-        );
+        console.log("you are fetching the survey")
+        const response = await axiosInstance.get("https://survey-rbq3.onrender.com/api/v1/survey");
+        console.log("your response of survey",response);
         console.log("surveys", response.data.surveys);
         SetSurvey([...response.data.surveys]);
-      } catch (error) {}
+      } catch (error) {
+        console.log("your error is",error);
+      }
     }
 
     fetchedData();

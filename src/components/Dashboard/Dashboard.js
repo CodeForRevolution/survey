@@ -55,7 +55,7 @@ const Dashboard = (props) => {
                             {pat.message}
                           </div>
                           <div className="col-sm-3 my-2 ">
-                            <span className="h6">Address:</span>
+                            <span className="h6">Address:-</span>
                             {pat.address}
                           </div>
                         </div>
