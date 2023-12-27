@@ -22,16 +22,13 @@ function App() {
 
   useEffect(() => {   
     
-    //Add the data in survey when user get login 
-
-
     async function fetchedData() {
      
       try {    
 
         if(!user.name){
         const localUser=JSON.parse(localStorage.getItem("user"));
-          if(localUser){
+          if(localUser){       //checking user is login or not
             setUser({...localUser});
           }
 
@@ -40,7 +37,7 @@ function App() {
           withCredentials: true,
         });
         console.log("you are fetching the survey")
-        const response = await axiosInstance.get("https://survey-rbq3.onrender.com/api/v1/survey");
+        const response = await axiosInstance.get("https://survey-rbq3.onrender.com/api/v1/survey"); //fetching the survey from server as get request
         console.log("your response of survey",response);
         console.log("surveys", response.data.surveys);
         SetSurvey([...response.data.surveys]);

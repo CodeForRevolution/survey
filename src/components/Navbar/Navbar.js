@@ -17,8 +17,7 @@ const Navbar = (props) => {
   async function handleLogout(){
     console.log("handle logout called");
     try {
-
-      const response=await  axios.get('https://survey-rbq3.onrender.com/api/v1/logout')
+       const response=await  axios.get('https://survey-rbq3.onrender.com/api/v1/logout')//making get request to do user logout
 
       if(response.data.success){
         document.cookie = `token=${null}; path=/;`;
@@ -31,6 +30,11 @@ const Navbar = (props) => {
     } catch (error) {
 
       console.log("error in logout",error);
+      if(error.response){
+        toast(`${error.response.data.message}`);
+      }else{
+        toast(`${error.message}`);
+      }
       
     }
   }

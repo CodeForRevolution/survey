@@ -25,7 +25,7 @@ const Form = (props) => {
   const handleChange = (e) => {
     var name = e.target.name;
     var value = e.target.value;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value });          //seting the form data when input changes
     
   };
 
@@ -40,16 +40,15 @@ const Form = (props) => {
       const response = await axios.post("https://survey-rbq3.onrender.com/api/v1/login",{...formData,});
       
       const token = response.data.token;
-      // document.cookie = `token=${token}; path=/;`;
 
-      document.cookie = `token=${token}; path=/; SameSite=None; Secure`;
+      document.cookie = `token=${token}; path=/; SameSite=None; Secure`; //setting  token in cookie to send in request 
 
     setFormData({...formData,email:"",password:''});
     setUser({...response.data.user});
     const newUser={...response.data.user};
-    localStorage.setItem("user",JSON.stringify(newUser));
-    toast("Login successfully")
-    navigate('/dashboard');
+    localStorage.setItem("user",JSON.stringify(newUser));   
+    toast("Login successfully")                                    //pop message that user is loged in
+    navigate('/dashboard');                                         //redirecting the user to dashaboard
  
       
      } catch (error) {
@@ -72,22 +71,21 @@ const Form = (props) => {
         console.log("your form data before register",formData);
          const response=await axios.post("https://survey-rbq3.onrender.com/api/v1/register",{
           ...formData
-         })
+         })    // making request to add new user  
 
          const token = response.data.token;
          document.cookie = `token=${token}; path=/;`;
         setUser({...response.data.user});
         const newUser={...response.data.user};
-        localStorage.setItem("user",JSON.stringify(newUser));
-        console.log("your user in localstorger")
-        toast("created successfully")
+        localStorage.setItem("user",JSON.stringify(newUser)); 
+        toast("created successfully")                        //pop message user is created
         navigate('/dashboard');
        
       } catch (error) {
         if(error.response){
-          toast(`${error.response.data.message}`);
+          toast(`${error.response.data.message}`);           //showing server send error as popup
         }else{
-          toast(`${error.message}`);
+          toast(`${error.message}`);                         // showing network error as popup
         }
       }
 
