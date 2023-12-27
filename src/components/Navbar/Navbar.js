@@ -20,18 +20,18 @@ const Navbar = (props) => {
        const response=await  axios.get('https://survey-rbq3.onrender.com/api/v1/logout')//making get request to do user logout
 
       if(response.data.success){
-        document.cookie = `token=${null}; path=/;`;
+        document.cookie = `token=${null}; path=/;`; // removing the token fromm cookie
         setUser({name:undefined,email:undefined,_id:undefined})
-        localStorage.removeItem("user");
-        navigate('/');
-        toast("Log-out successfully")
+        localStorage.removeItem("user");  // removing the user from local storage
+        navigate('/');                       // redirecting the user to home page
+        toast("Log-out successfully")       // message that user logout
       }
       
     } catch (error) {
 
       console.log("error in logout",error);
       if(error.response){
-        toast(`${error.response.data.message}`);
+        toast(`${error.response.data.message}`);       //handaling the error gracefully
       }else{
         toast(`${error.message}`);
       }
