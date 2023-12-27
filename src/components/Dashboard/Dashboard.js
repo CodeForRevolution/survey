@@ -6,11 +6,11 @@ const Dashboard = (props) => {
   const { surveys } = props;
 
   return (
-    <div className="dashboard">
+    <div className="dashboard ">
       <div className="row text-center h-75 " id="main">
-        <div className="col-12 col-sm-12 p-0 bg-primary">
+        <div className="col-12 col-sm-12 p-0  bg-primary">
           <div className="listcontainer px-2">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush my-5" id="accordionFlushExample">
               {surveys.map((pat, index) => {
                 return (
                   <div class="accordion-item mx-1 my-3">
@@ -27,17 +27,14 @@ const Dashboard = (props) => {
                         aria-controls={`flush-collapseOne${index}`}
                       >
                         <div className="row w-100 ">
-                          <div className="col-md-2 my-1">
+                          <div className="col-md-4  my-1">
                             <span className="h6">Name:</span>
                             {pat.name}
                           </div>
-                          <div className="col-md-2 mt-">Email:{pat.email}</div>
-                          <div className="col-md-2 mt-1">Phone:{pat.phone}</div>
-                          <div className="col-md-2 mt-1">
-                            Gender:{pat.gender}
-                          </div>
-                          <div className="col-md-3 mt-1">
-                            Nationality:{pat.nationality}
+                          <div className="col-md-4  mt-"><span className="h6">Email: </span>{pat.email}</div>
+                         
+                          <div className="col-md-4 mt-1">
+                           <span className="h6"> Nationality: </span>{pat.nationality}
                           </div>
                         </div>
                       </button>
@@ -49,15 +46,28 @@ const Dashboard = (props) => {
                       data-bs-parent="#accordionFlushExample"
                     >
                       <div class="accordion-body p-1 text-start">
+
                         <div className="row">
-                          <div className="col-sm-6 my-2">
-                            <span className="h6">Message:</span>
+
+                          <div className="col-sm-4 my-2">
+                            <span className="h6">Message: </span>
                             {pat.message}
                           </div>
+
                           <div className="col-sm-3 my-2 ">
-                            <span className="h6">Address:-</span>
+                            <span className="h6">Address: </span>
                             {pat.address}
                           </div>
+                           
+
+                          <div className="col-md-3 mt-1"><span className="h6">Phone: </span>{pat.phone}</div>
+                          <div className="col-md-3 mt-1">
+                            <span className="h6">Gender:</span>{pat.gender}
+                          </div>
+
+
+
+
                         </div>
                       </div>
                     </div>

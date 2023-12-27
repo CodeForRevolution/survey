@@ -1,5 +1,5 @@
 #navbarNav{
-
+    z-index: 99999;
 }
 
 
@@ -7,6 +7,11 @@
     color: white;
     
    
+
+}
+
+.navbar{
+    z-index: 99999;
 
 }
 

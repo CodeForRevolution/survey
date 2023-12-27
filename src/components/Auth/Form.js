@@ -59,8 +59,6 @@ const Form = (props) => {
         toast(`${error.message}`);
       }
       
-      
-      
      }
     } else {
       try {
