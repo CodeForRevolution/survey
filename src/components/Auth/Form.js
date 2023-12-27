@@ -46,6 +46,8 @@ const Form = (props) => {
 
     setFormData({...formData,email:"",password:''});
     setUser({...response.data.user});
+    const newUser={...response.data.user};
+    localStorage.setItem("user",JSON.stringify(newUser));
     toast("Login successfully")
     navigate('/dashboard');
  
@@ -75,6 +77,9 @@ const Form = (props) => {
          const token = response.data.token;
          document.cookie = `token=${token}; path=/;`;
         setUser({...response.data.user});
+        const newUser={...response.data.user};
+        localStorage.setItem("user",JSON.stringify(newUser));
+        console.log("your user in localstorger")
         toast("created successfully")
         navigate('/dashboard');
        

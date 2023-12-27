@@ -20,9 +20,22 @@ function App() {
   const [user, setUser] = useState({});
   const [survey, SetSurvey] = useState([]);
 
-  useEffect(() => {                             //Add the data in survey when user get login 
+  useEffect(() => {   
+    
+    //Add the data in survey when user get login 
+
+
     async function fetchedData() {
-      try {
+     
+      try {    
+
+        if(!user.name){
+        const localUser=JSON.parse(localStorage.getItem("user"));
+          if(localUser){
+            setUser({...localUser});
+          }
+
+        }
         const axiosInstance = axios.create({
           withCredentials: true,
         });
@@ -37,7 +50,7 @@ function App() {
     }
 
     fetchedData();
-  }, [user]);
+  }, []);
 
   const router = createBrowserRouter([
     {

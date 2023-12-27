@@ -18,16 +18,19 @@ const Navbar = (props) => {
     console.log("handle logout called");
     try {
 
-      const response=await  axios.get('http://localhost:4000/api/v1/logout')
+      const response=await  axios.get('https://survey-rbq3.onrender.com/api/v1/logout')
 
       if(response.data.success){
         document.cookie = `token=${null}; path=/;`;
         setUser({name:undefined,email:undefined,_id:undefined})
+        localStorage.removeItem("user");
         navigate('/');
         toast("Log-out successfully")
       }
       
     } catch (error) {
+
+      console.log("error in logout",error);
       
     }
   }
