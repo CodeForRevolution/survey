@@ -1,0 +1,19 @@
+#navbarNav{
+
+}
+
+
+#navbarNav ul li:hover  a{
+    color: white;
+    
+   
+
+}
+
+#outlet{
+    height:95vh;
+    width: 100vw;
+    background-color: red;
+}
+
+

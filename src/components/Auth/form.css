@@ -1,0 +1,58 @@
+#form{
+    height: auto;
+    width: 35vw;
+    background-color: azure;
+
+
+
+  
+}
+
+
+
+#auth{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: purple;
+  background-image: url("https://niemanreports.org/wp-content/uploads/2022/03/Screen-Shot-2022-03-23-at-3.24.41-PM-e1648063571877.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+
+   
+  }
+  
+  .login {
+    opacity: 1;
+  }
+  
+  .signup {
+    opacity: 0;
+   /* Disable interaction when not visible */
+  }
+
+
+
+  #login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+   
+  }
+
+@media screen and (max-width:500px){
+    #form{
+      width: 90vw;
+
+    }
+}
+
+

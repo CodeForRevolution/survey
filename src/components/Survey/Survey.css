@@ -1,0 +1,28 @@
+#survey{
+    
+    height: 100%;
+    width: 100%;  
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    background-image: url("https://niemanreports.org/wp-content/uploads/2022/03/Screen-Shot-2022-03-23-at-3.24.41-PM-e1648063571877.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: orange;
+  
+  
+}
+
+#survey .container{
+    width:30%;
+   
+    
+}
+
+@media screen and (max-width:500px){
+  #survey .container{
+    width: 98%;
+  }
+}
+
